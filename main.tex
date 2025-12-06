@@ -4,8 +4,59 @@
 \usepackage{tikz}
 \usepackage{amssymb}
 \usepackage{biblatex}
+\usepackage{listings}
+\usepackage{algorithm}
 \addbibresource{ref.bib}
 
+
+%___________________________________________________
+% LST
+
+\lstset{frame=tb,
+  basicstyle=\small\ttfamily, % Global Code Style
+  captionpos=b, % Position of the Caption (t for top, b for bottom)
+  extendedchars=true, % Allows 256 instead of 128 ASCII characters
+  tabsize=2, % number of spaces indented when discovering a tab 
+  columns=fixed, % make all characters equal width
+  keepspaces=true, % does not ignore spaces to fit width, convert tabs to spaces
+  showstringspaces=false, % lets spaces in strings appear as real spaces
+  breaklines=true, % wrap lines if they don't fit
+  frame=trbl, % draw a frame at the top, right, left and bottom of the listing
+  frameround=tttt, % make the frame round at all four corners
+  framesep=4pt, % quarter circle size of the round corners
+  %numbers=left, % show line numbers at the left
+  %numberstyle=\tiny\ttfamily, % style of the line numbers
+  morekeywords={True},
+  keywordstyle=\color{RubineRed}, % style of keywords
+  stringstyle=\color{Orchid}, % style of strings
+}
+% Types
+
+
+\definecolor{ppurple}{rgb}{0.71,0.13,0.71}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+
+\lstdefinelanguage{SMV} {
+  morekeywords={VAR, IVAR, MODULE, ASSIGN, next, init, INIT, DEFINE, TRANS,
+  LTLSPEC, CTLSPEC, case, esac
+  }
+}
+
+\lstset{language=SMV,
+  showspaces=false,
+  showtabs=false,
+  breaklines=true,
+  showstringspaces=false,
+  breakatwhitespace=true,
+  commentstyle=\color{pgreen},
+  keywordstyle=\color{ppurple},
+  stringstyle=\color{pred},
+  basicstyle=\small\ttfamily,
+  moredelim=[il][\textcolor{pgrey}]{\$\$},
+  moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
+}
 \usetheme[navigation]{UMONS}
 \begin{document}
 %\usetheme[navigation, no-subsection, no-totalframenumber]{UMONS}
@@ -20,11 +71,7 @@
   Bartha Maxime
 }
 
-\institute[]{%
-  University of Mons
-  \\[2ex]
-  \includegraphics[height=4ex]{images/logoumons.jpg}\hspace{2em}%
-  \raisebox{-1x}{\includegraphics[height=6ex]{images/logofs.jpg}}
+\institute[]{graphics[height=6ex]{images/logofs.jpg}
 }
 
 \begin{frame}[plain, noframenumbering]
@@ -46,12 +93,70 @@
 
 \section{Introduction}
 \begin{frame}
-  
+  \frametitle{Introduction}
+  \begin{itemize}
+    \item $nuXmv$: symbolic model checker based on $nuSMV$
+    \item  Model specification for:
+    \begin{itemize}
+      \item finite-state systems
+      \item infinite-state systems
+      \item synchronous systems 
+    \end{itemize}
+    \item Asynchronous systems not supported 
+  \end{itemize}
 \end{frame}
-\section{Nusmv}
+
+\begin{frame}
+  \begin{itemize}
+    \item Model checking algorithms:
+      \begin{itemize}
+        \item finite-state systems:
+          \begin{itemize}
+            \item BDD-based model checking
+            \item SAT-based algorithms (BMC, K-Liveness, IC3)
+          \end{itemize}
+        \item infinite-state systems:
+          \begin{itemize}
+            \item SMT-based model checking 
+          \end{itemize}
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
 
 \section{Language}
+\begin{frame}[fragile]
+  \begin{itemize}
+    \item SMV language
+      \begin{itemize}
+        \item Symbolic representation of s system
+      \end{itemize}
+  \end{itemize}
+
+\begin{lstlisting}[language=SMV]
+  MODULE main
+    VAR
+      s0 : boolean;
+    INIT
+      !s0;
+    TRANS
+      s0 -> next(!s0);
+  \end{lstlisting}
+
+\end{frame}
+
+
+\begin{frame}
+\end{frame} 
+
+
+
+
 \section{Model Checking}
+\begin{frame}
+\end{frame}
+
+
 \section{Examples}
 
 
