@@ -6,6 +6,8 @@
 \usepackage{biblatex}
 \usepackage{listings}
 \usepackage{algorithm}
+\usepackage{tikz}
+\usetikzlibrary {automata,positioning}
 \addbibresource{ref.bib}
 
 
@@ -218,15 +220,89 @@
         \item Counter example finder in a time bound $k$
         \item check\_ltlspec\_bmc
       \end{itemize}
-    \item IC3 and K-liveness
+    \item K-liveness
     \begin{itemize}
-      \item Invariants checker
-      \item Creates invariant inductively
-      \item check\_invar\_ic3, check\_ltlspec\_ic3
+      \item check\_ltlspec\_ic3
+
 
     \end{itemize} 
 
     \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Model Checking}
+    \begin{figure}
+    \begin{center}
+\begin{tikzpicture}[shorten >=1pt,node distance=20pt,auto,initial text=]
+
+  \node[state,initial]  (q_0)                {$\neg s0,\neg s1$};
+  \node[state]          (q_1) [right=of q_0] {$s0,\neg s1$};
+  \node[state]          (q_2) [below=of q_1] {$\neg s0,s1$};
+  \node[state]          (q_3) [below=of q_0] {$s0,s1$};
+
+  \path[->] (q_0) edge node {} (q_1)
+            (q_1) edge node {} (q_2)
+            (q_2) edge node {} (q_3)
+            (q_3) edge node {} (q_0)
+\end{tikzpicture}
+    \end{center}
+\end{figure}
+\begin{itemize}
+  \item $\phi_1 := \square (\diamond (s0\land s1))$
+  \item $\phi_2 := \diamond (\square (\neg s0 \land \neg s1))$
+\end{itemize}
+    \begin{figure}
+      \begin{center}
+        \includegraphics[width=0.75\textwidth]{images/bdd_phi_1.png}
+      \end{center}
+    \end{figure}
+    
+
+\end{frame}
+
+
+\begin{frame}
+ \begin{figure}[!htb]
+    \centering
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/bmc_phi_1.png}
+        \caption{BMC}
+        \label{fig:prob1_6_2}
+    \end{minipage}%
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/IC3_phi_1.png}
+        \caption{K-liveness}
+        \label{fig:prob1_6_1}
+    \end{minipage}
+\end{figure} 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Model Checking}
+    \begin{figure}
+    \begin{center}
+\begin{tikzpicture}[shorten >=1pt,node distance=20pt,auto,initial text=]
+
+  \node[state,initial]  (q_0)                {$\neg s0,\neg s1$};
+  \node[state]          (q_1) [right=of q_0] {$s0,\neg s1$};
+  \node[state]          (q_2) [below=of q_1] {$\neg s0,s1$};
+  \node[state]          (q_3) [below=of q_0] {$s0,s1$};
+
+  \path[->] (q_0) edge node {} (q_1)
+            (q_1) edge node {} (q_2)
+            (q_2) edge node {} (q_3)
+            (q_3) edge node {} (q_0)
+\end{tikzpicture}
+    \end{center}
+\end{figure}
+\begin{itemize}
+  \item $\phi_2 := \diamond (\square (\neg s0 \land \neg s1))$
+\end{itemize}
+    
 
 \end{frame}
   % BDD-Based model checking
