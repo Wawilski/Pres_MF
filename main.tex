@@ -32,6 +32,7 @@
 }
 % Types
 
+\setbeamertemplate{navigation symbols}{}
 
 \definecolor{ppurple}{rgb}{0.71,0.13,0.71}
 \definecolor{pgreen}{rgb}{0,0.5,0}
@@ -63,15 +64,20 @@
 
 \newcommand{\IR}{\mathbb{R}}
 
-\title{Took presentation}
+\title[NuXmv Tool presentation]{Tool presentation}
 \subtitle{NuXmv}
-\author{
+\author[K.William \and B.Maxime]{
   Karpinski William 
   \and
   Bartha Maxime
 }
 
-\institute[]{graphics[height=6ex]{images/logofs.jpg}
+\institute[]{%
+  Computer Sciences department\\
+  University of Mons
+  \\[2ex]
+  \includegraphics[height=4ex]{images/logoumons.jpg}\hspace{2em}%
+  \raisebox{-1ex}{\includegraphics[height=6ex]{images/logofs.jpg}}
 }
 
 \begin{frame}[plain, noframenumbering]
@@ -79,7 +85,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Plan}
+  \frametitle{Outline}
   \tableofcontents
 \end{frame}
 \AtBeginSection[]
@@ -92,10 +98,23 @@
 
 
 \section{Introduction}
+
+\begin{frame}
+  \frametitle{Introduction}
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.60\textwidth]{images/NuXMV.png}
+  \end{center}
+\end{figure}
+
+
+  Released in february of 2014, nuXmv is a model checker based on nuSmv which appeared in 1999 (hence the logo)
+\end{frame}
+
 \begin{frame}
   \frametitle{Introduction}
   \begin{itemize}
-    \item $nuXmv$: symbolic model checker based on $nuSMV$
     \item  Model specification for:
     \begin{itemize}
       \item finite-state systems
