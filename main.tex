@@ -154,8 +154,88 @@
 
 \section{Model Checking}
 \begin{frame}
+\frametitle{Model Checking}
+  \begin{itemize}
+    \item Finite-state systems
+    \begin{itemize}
+      \item BDD-based algorithm
+      \item SAT-based algorithms
+        \begin{itemize}
+          \item Bounded Model Checking (BMC)
+          \item K-Liveness
+          \item IC3
+        \end{itemize}
+    \end{itemize}
+      \item Infinite-state systems
+      \begin{itemize}
+        \item SMT-based algorithms 
+      \end{itemize}
+    
+  \end{itemize}
 \end{frame}
 
+\begin{frame}
+\frametitle{Algorithms}
+\begin{itemize}
+  \item BDD-based algorithm
+  \begin{itemize}
+    \item LTL and CTL
+    \item Heritated from $nuSMV$
+    \item check\_ltlspec, check\_ctlspec
+    
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Algorithms}
+    \begin{itemize}
+      \item SAT-based algorithms 
+      \begin{itemize}
+        \item LTL only
+      \end{itemize}
+    \item BMC
+      \begin{itemize}
+        \item Counter example finder in a time bound $k$
+        \item check\_ltlspec\_bmc
+      \end{itemize}
+    \item IC3 and K-liveness
+    \begin{itemize}
+      \item Invariants checker
+      \item Creates invariant inductively
+      \item check\_invar\_ic3, check\_ltlspec\_ic3
+
+    \end{itemize} 
+
+    \end{itemize}
+
+\end{frame}
+  % BDD-Based model checking
+  %
+  %
+  % SAT model checking
+  %   BMC : Bounded model checking
+  %   K-liveness
+  %   IC3
+  %
+  %
+  % BMC idea:
+  %   SATisfiabilité pour CNF en temps poly
+  %   GOAL: étant donné une formule et un time bound k
+  %   Construire formule propositionnelle satisfiable ssi valid sur un chemin 
+  %   de longueur k si cest le cas alors on a un contre exemple si pas alors
+  %   la formule est good
+  %
+  % IC3 & k-liveness
+  %   Solve verification problem avec plein de mini SAT queries
+  %
+  %
+  % SAT can DO ALL LTL, en principe TOUT CTL mais research pour retirer
+  % quantificateurs
+  %
+  % SAT better when at finding errors fast and giving counter examples
+  % BDD better proving no errors
+  %
 
 \section{Examples}
 
