@@ -158,22 +158,14 @@
 \section{Model Checking}
 \begin{frame}
 \frametitle{Model Checking}
+  Finite-state systems
   \begin{itemize}
-    \item Finite-state systems
-    \begin{itemize}
-      \item BDD-based algorithm
-      \item SAT-based algorithms
-        \begin{itemize}
-          \item Bounded Model Checking (BMC)
-          \item K-Liveness
-          \item IC3
-        \end{itemize}
-    \end{itemize}
-      \item Infinite-state systems
+    \item BDD-based algorithm
+    \item SAT-based algorithms
       \begin{itemize}
-        \item SMT-based algorithms 
+        \item Bounded Model Checking (BMC)
+        \item K-Liveness
       \end{itemize}
-    
   \end{itemize}
 \end{frame}
 
@@ -183,9 +175,9 @@
   \item BDD-based algorithm
   \begin{itemize}
     \item LTL and CTL
+    \item Convert formula into a BDD, with propositional logic
     \item Heritated from $nuSMV$
     \item check\_ltlspec, check\_ctlspec
-    
   \end{itemize}
 \end{itemize}
 \end{frame}
@@ -193,21 +185,23 @@
 \begin{frame}
 \frametitle{Algorithms}
     \begin{itemize}
-      \item SAT-based algorithms 
+        \item SAT-based algorithms 
+        \begin{itemize}
+          \item LTL only
+        \end{itemize}
+      \item BMC
+        \begin{itemize}
+          \item Try to find a counter example in a bound $k$
+          \item $k$ chosen by default by $nuXmv$
+          \item check\_ltlspec\_bmc
+        \end{itemize}
+      \item K-liveness
       \begin{itemize}
-        \item LTL only
-      \end{itemize}
-    \item BMC
-      \begin{itemize}
-        \item Counter example finder in a time bound $k$
-        \item check\_ltlspec\_bmc
-      \end{itemize}
-    \item K-liveness
-    \begin{itemize}
-      \item check\_ltlspec\_ic3
-
-
-    \end{itemize} 
+        \item Try to find a counter example using invariant induction proof
+        \item Implement IC3
+        \item check\_ltlspec\_ic3
+        
+      \end{itemize} 
 
     \end{itemize}
 
@@ -233,7 +227,6 @@
 \end{figure}
 \begin{itemize}
   \item $\phi_1 := \square (\diamond (s0\land s1))$
-  \item $\phi_2 := \diamond (\square (\neg s0 \land \neg s1))$
 \end{itemize}
     \begin{figure}
       \begin{center}
@@ -246,19 +239,25 @@
 
 
 \begin{frame}
+  
+  \frametitle{Model Checking}
+  
+  \begin{itemize}
+    \item go\_bmc : setup model for SAT-model checking
+    \item BMC : does not provide a definitive answer
+  \end{itemize}
+
  \begin{figure}[!htb]
     \centering
-    \begin{minipage}{.5\textwidth}
+    \begin{minipage}{.4\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/bmc_phi_1.png}
+        \includegraphics[width=0.5\textheight]{images/bmc_phi_1.png}
         \caption{BMC}
-        \label{fig:prob1_6_2}
     \end{minipage}%
-    \begin{minipage}{0.5\textwidth}
+    \begin{minipage}{0.4\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{images/IC3_phi_1.png}
+        \includegraphics[width=0.5\textheight]{images/IC3_phi_1.png}
         \caption{K-liveness}
-        \label{fig:prob1_6_1}
     \end{minipage}
 \end{figure} 
 \end{frame}
@@ -285,7 +284,45 @@
   \item $\phi_2 := \diamond (\square (\neg s0 \land \neg s1))$
 \end{itemize}
     
+\end{frame}
 
+\begin{frame}
+  \frametitle{Model Checking}
+    \begin{figure}
+      \begin{center}
+        \includegraphics[width=0.5\textwidth]{images/bdd_phi_2.png}
+      \end{center}
+      \caption{BDD-algorithm}
+    \end{figure}
+\end{frame}
+\begin{frame}
+
+  \frametitle{Model Checking}
+ \begin{figure}[!htb]
+    \centering
+    \begin{minipage}{.4\textwidth}
+        \centering
+        \includegraphics[width=0.5\textheight]{images/bmc_phi_2.png}
+        \caption{BMC}
+    \end{minipage}%
+    \begin{minipage}{0.4\textwidth}
+        \centering
+        \includegraphics[width=0.5\textheight]{images/IC3_phi_2.png}
+        \caption{K-liveness}
+    \end{minipage}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Model Checking}
+  Infinite-state Systems
+  \begin{itemize}
+    \item Reals and integers implemented
+    \item SMT-Based algorithms and abstraction
+      \begin{itemize}
+        \item BMC, K-liveness
+      \end{itemize}
+ \end{itemize}
 \end{frame}
   % BDD-Based model checking
   %

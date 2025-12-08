@@ -11,7 +11,6 @@
 *.nav
 *.blg
 *.bbl
-*.bcf
 main.bcf
 *.xml
 *.snm
