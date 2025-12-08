@@ -158,11 +158,17 @@
 \section{Model Checking}
 \begin{frame}
 \frametitle{Model Checking}
+  Over finite-state and infinite-state systems
+  \pause
+
   Finite-state systems
+  \pause
   \begin{itemize}
     \item BDD-based algorithm
+    \pause
     \item SAT-based algorithms
       \begin{itemize}
+        \pause
         \item Bounded Model Checking (BMC)
         \item K-Liveness
       \end{itemize}
@@ -174,8 +180,11 @@
 \begin{itemize}
   \item BDD-based algorithm
   \begin{itemize}
+    \pause
     \item LTL and CTL
+    \pause
     \item Convert formula into a BDD, with propositional logic
+    \pause
     \item Heritated from $NuSMV$
     \item check\_ltlspec, check\_ctlspec
   \end{itemize}
@@ -184,23 +193,30 @@
 
 \begin{frame}
 \frametitle{Algorithms}
-    SAT-Based algorithms (LTL only)
+    SAT-Based algorithms \pause (LTL only)
     \begin{itemize}
+      \pause 
       \item BMC
         \begin{itemize}
+          \pause 
           \item Try to find a counter example with depth up to $k$
+          \pause 
           \item $k$ chosen by default by $nuXmv$
+          \pause 
           \item check\_ltlspec\_bmc
         \end{itemize}
+          \pause 
       \item K-liveness
       \begin{itemize}
+          \pause 
         \item Try to find a counter example using invariant induction proof
         \item check\_ltlspec\_ic3
         
       \end{itemize} 
 
     \end{itemize}
-
+  \pause 
+Faster than BDD-based algorithm
 \end{frame}
 
 \begin{frame}
@@ -221,9 +237,11 @@
 \end{tikzpicture}
     \end{center}
 \end{figure}
+  \pause 
 \begin{itemize}
   \item $\phi_1 := \square (\diamond (s0\land s1))$
 \end{itemize}
+  \pause 
     \begin{figure}
       \begin{center}
         \includegraphics[width=0.75\textwidth]{images/bdd_phi_1.png}
@@ -311,13 +329,20 @@
 
 \begin{frame}
   \frametitle{Model Checking}
-  Infinite-state Systems
+  \pause 
+  Infinite-state systems
   \begin{itemize}
+  \pause 
     \item Reals and integers implemented
+  \pause 
     \item SMT-Based algorithms 
       \begin{itemize}
-        \item BMC, K-liveness
+        \item Implement BMC, K-liveness
       \end{itemize}
+    \pause
+    \item SMT generalizes SAT
+    \pause
+    \item go\_msat, msat\_check\_ltlspec\_bmc 
  \end{itemize}
 \end{frame}
 
