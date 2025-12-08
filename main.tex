@@ -95,7 +95,7 @@
 \AtBeginSection[]
   {
      \begin{frame}<beamer>
-     \frametitle{Plan}
+     \frametitle{Outline}
      \tableofcontents[currentsection]
      \end{frame}
   }
@@ -131,7 +131,7 @@
 
 
 \begin{frame}[fragile]
-  \frametitle{Models definition}
+  \frametitle{Model definition}
   \begin{itemize}
     \item SMV file
       \begin{itemize}
@@ -176,7 +176,7 @@
   \begin{itemize}
     \item LTL and CTL
     \item Convert formula into a BDD, with propositional logic
-    \item Heritated from $nuSMV$
+    \item Heritated from $NuSMV$
     \item check\_ltlspec, check\_ctlspec
   \end{itemize}
 \end{itemize}
@@ -318,41 +318,32 @@
   Infinite-state Systems
   \begin{itemize}
     \item Reals and integers implemented
-    \item SMT-Based algorithms and abstraction
+    \item SMT-Based algorithms 
       \begin{itemize}
         \item BMC, K-liveness
       \end{itemize}
  \end{itemize}
 \end{frame}
-  % BDD-Based model checking
-  %
-  %
-  % SAT model checking
-  %   BMC : Bounded model checking
-  %   K-liveness
-  %   IC3
-  %
-  %
-  % BMC idea:
-  %   SATisfiabilité pour CNF en temps poly
-  %   GOAL: étant donné une formule et un time bound k
-  %   Construire formule propositionnelle satisfiable ssi valid sur un chemin 
-  %   de longueur k si cest le cas alors on a un contre exemple si pas alors
-  %   la formule est good
-  %
-  % IC3 & k-liveness
-  %   Solve verification problem avec plein de mini SAT queries
-  %
-  %
-  % SAT can DO ALL LTL, en principe TOUT CTL mais research pour retirer
-  % quantificateurs
-  %
-  % SAT better when at finding errors fast and giving counter examples
-  % BDD better proving no errors
-  %
 
-\section{Examples}
 
+
+\section{Conclusion}
+\begin{frame}
+  \frametitle{Conclusion}
+  \begin{itemize}
+    \item nuXmv is a powerful model checker 
+    \item supporting finite and infinite state models
+    \item only available as a command line tool
+    \item we would not recommend you to use it due to its documentation
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+  \center
+  \huge Thank you for listening
+  
+\end{frame}
 
 \printbibliography
 
