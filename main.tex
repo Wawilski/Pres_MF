@@ -184,21 +184,17 @@
 
 \begin{frame}
 \frametitle{Algorithms}
+    SAT-Based algorithms (LTL only)
     \begin{itemize}
-        \item SAT-based algorithms 
-        \begin{itemize}
-          \item LTL only
-        \end{itemize}
       \item BMC
         \begin{itemize}
-          \item Try to find a counter example in a bound $k$
+          \item Try to find a counter example with depth up to $k$
           \item $k$ chosen by default by $nuXmv$
           \item check\_ltlspec\_bmc
         \end{itemize}
       \item K-liveness
       \begin{itemize}
         \item Try to find a counter example using invariant induction proof
-        \item Implement IC3
         \item check\_ltlspec\_ic3
         
       \end{itemize} 
