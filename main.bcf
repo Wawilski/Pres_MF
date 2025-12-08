@@ -2371,6 +2371,7 @@
   </bcf:bibdata>
   <bcf:section number="0">
     <bcf:citekey order="1" intorder="1">inproceedings</bcf:citekey>
+    <bcf:citekey order="2" intorder="1">DBLP:conf/cav/CavadaCDGMMMRT14</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">
